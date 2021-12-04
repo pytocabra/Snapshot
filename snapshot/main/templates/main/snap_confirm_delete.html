@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Snapshot - New Snap
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-4 card bg-light p-3">
+        <h3 class="border-bottom pb-2 mb-3">Delete snapshot</h3>
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="mb-3">
+                        <h5>Are you sure?</h5>
+                    </div>
+                </div>
+                
+                <button class="btn btn-danger form-control" type="submit">Delete</button>
+                <div class="mb-1"></div>
+                <a href="{% url 'snap-detail' object.id %}"class="btn btn-secondary form-control">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

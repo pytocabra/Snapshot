@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Snapshot - Profile {{ user.username }}
+{% endblock %}
+
+{% block body %}
+<div class="container mb-2">
+    
+    <div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-7">
+            <img src="{{ snap.snap.url }}" class="card-img-top" alt="...">
+        </div>
+        <div class="col-md-5">
+        <div class="card-body">
+            <h2 class="card-title">{{ snap.title }}</h2>
+            <div class="mb-2">
+                {% for t in snap.tag.all %}
+                    <span class="badge bg-secondary">{{ t }}</span>
+                {% endfor %}
+            </div>
+            <p class="card-text">{{ snap.description }}</p>
+            <p class="card-text"><small class="text-muted">{{ snap.date_posted|date:"F j, Y" }} by {{ snap.author.username }}</small></p>
+            {% if request.user == snap.author %}
+                <div class="row">
+                    <div class="col-sm-6 mb-2">
+                        <a href="{% url 'snap-update' object.id %}" class="btn btn-secondary form-control">Edit</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="{% url 'snap-delete' object.id %}" class="btn btn-danger form-control">Delete</a>
+                    </div>
+                    
+                </div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Snapshot - Register
+{% endblock %}
+
+{% block body%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 card bg-light p-3">
+            <h3 class="border-bottom pb-2 mb-3">Join Today</h3>
+            
+            <form method="POST">   
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label" for="{{ form.username.id_for_label }}">Username</label>
+                    <input class="form-control"  type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">
+                    <span class="form-text" style="color: red">{{ form.username.errors }}</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="{{ form.email.id_for_label }}">Email</label>
+                    <input class="form-control" type="email" name="email" required id="id_email">
+                    <span class="form-text" style="color: red">{{ form.email.errors }}</span>
+                </div>
+                <div class="mb-3">
+                    {{ form.password1.errors }}
+                    <label class="form-label" for="{{ form.password1.id_for_label }}">Password</label>
+                    <input class="form-control" type="password" name="password1" autocomplete="new-password" required id="id_password1">
+                    {% if form.password1.help_text %}
+                        <span class="form-text">{{ form.password1.help_text|safe }}</span>
+                    {% endif %}
+                    <span class="form-text" style="color: red">{{ form.password1.errors }}</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="{{ form.password2.id_for_label }}">Password confirmation</label>
+                    <input class="form-control" type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                    <span class="form-text" style="color: red">{{ form.password2.errors }}</span>
+
+                </div>
+
+
+                
+                <button class="btn btn-success form-control" type="submit">Sign up</button>
+                <div class="border-top mt-3">
+                    <span class="form-text">
+                        Have already an account?<a class="p-2" href="{% url 'login' %}">Sign In</a>
+                    </span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+  

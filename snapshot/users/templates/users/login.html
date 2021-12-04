@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Snapshot - Log in
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-4 card bg-light p-3">
+        <h3 class="border-bottom pb-2 mb-3">Log In</h3>
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="mb-3">
+                        {{ form|crispy }}
+                    </div>
+                </div>
+                
+                <button class="btn btn-success form-control" type="submit">Log in</button>
+                <div class="border-top mt-3">
+                    <span class="form-text">
+                        Need an account?<a class="p-2" href="{% url 'register' %}">Sign Up</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

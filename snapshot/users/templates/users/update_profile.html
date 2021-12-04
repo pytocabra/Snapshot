@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Snapshot - Update Profile
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-4 card bg-light p-3">
+        <h3 class="border-bottom pb-2 mb-3">Profile</h3>
+        <div class="content-section">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="mb-3">
+                        {{ user_update_form|crispy }}
+                        {{ profile_update_form|crispy }}
+                    </div>
+                </div>
+                
+                <button class="btn btn-success form-control" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

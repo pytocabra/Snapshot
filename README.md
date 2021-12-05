@@ -2,7 +2,7 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
-Snapshot is a web platform for sharing your daily journeys with snaps (pictures). The website allows you to create your account, uploads snaps, describe them and explore other users' snaps. Snapshot has been deployed on AWS and it is up and running! [Check it out!](http://ec2-3-129-253-161.us-east-2.compute.amazonaws.com:8080/ "Snapshot Website")
+Snapshot is a web platform for sharing your daily journeys with snaps (pictures). The website allows you to create your account, uploads snaps, describe them and explore other users' snaps.
 
 ## Technology Stack
 
